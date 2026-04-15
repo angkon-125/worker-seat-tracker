@@ -8,7 +8,7 @@ class Worker(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
-    employee_code = Column(String, unique=True, index=True, nullable=False)
+    employee_code = Column(String(50), unique=True, index=True, nullable=False)
     assigned_seat_id = Column(Integer, ForeignKey("seats.id"), nullable=True)
     department = Column(String, nullable=True)
     shift_start = Column(String, nullable=True) # "HH:MM"
@@ -22,7 +22,7 @@ class Seat(Base):
     __tablename__ = "seats"
 
     id = Column(Integer, primary_key=True, index=True)
-    seat_code = Column(String, unique=True, index=True, nullable=False)
+    seat_code = Column(String(50), unique=True, index=True, nullable=False)
     camera_id = Column(Integer, ForeignKey("cameras.id"), nullable=False)
     
     # Zone coordinates (normalized 0.0 to 1.0)
