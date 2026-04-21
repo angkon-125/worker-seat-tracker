@@ -25,20 +25,4 @@ export const getWorkerScore  = (seatId: number) => intel.get(`/intelligence/work
 export const getAllScores     = () => intel.get('/intelligence/scores');
 export const getPatterns     = (sinceHours = 168) => intel.get('/intelligence/patterns', { params: { since_hours: sinceHours } });
 
-// ── Floor Maps API ──────────────────────────────────────────────────────────
-export const getFloorMapData = () => api.get('/rooms');
-
-// ── Camera Feeds API ────────────────────────────────────────────────────────
-export const getCameraStatus = (id: number) => api.get(`/cameras/${id}/status`);
-export const restartCamera   = (id: number) => api.post(`/cameras/${id}/restart`);
-
-// ── Audit Logs API ───────────────────────────────────────────────────────────
-export const getLogs = (params?: { seat_id?: number; camera_id?: number; start_date?: string; end_date?: string; limit?: number; offset?: number }) => 
-  api.get('/logs', { params });
-export const getLogsSummary = () => api.get('/logs/summary');
-
-// ── Settings API ────────────────────────────────────────────────────────────
-export const getSettings = () => api.get('/settings');
-export const updateSettings = (settings: any) => api.post('/settings', settings);
-
 export default api;

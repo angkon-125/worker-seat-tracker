@@ -14,7 +14,8 @@ import {
 const navItems = [
   { href: '/', label: 'Overview', icon: LucideLayoutDashboard },
   { href: '/intelligence', label: 'Intelligence', icon: LucideBrain },
-  { href: '/floor-maps', label: 'Floor Maps', icon: LucideMap },
+  { href: '/floor-map', label: 'Floor Maps', icon: LucideMap },
+  { href: '/video-test', label: 'Video Test', icon: LucideVideo },
   { href: '/camera-feeds', label: 'Camera Feeds', icon: LucideVideo },
   { href: '/audit-logs', label: 'Audit Logs', icon: LucideHistory },
   { href: '/settings', label: 'Settings', icon: LucideSettings },
@@ -26,7 +27,7 @@ export default function AppShellNav() {
   return (
     <nav className="flex flex-col gap-2 flex-grow">
       {navItems.map(({ href, label, icon: Icon }) => {
-        const active = pathname === href
+        const active = pathname === href || pathname?.startsWith(href + '/')
 
         return (
           <Link
